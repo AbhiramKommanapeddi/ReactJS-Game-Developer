@@ -1,0 +1,59 @@
+/* Placeholder images - these will be replaced with actual images */
+.game-image[src="images/safari1.jpg"] {
+    background: linear-gradient(45deg, #8B4513, #DEB887);
+    background-image: 
+        radial-gradient(circle at 25% 25%, #FFD700 20px, transparent 20px),
+        radial-gradient(circle at 75% 75%, #FF6347 15px, transparent 15px),
+        radial-gradient(circle at 50% 50%, #32CD32 10px, transparent 10px);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.game-image[src="images/safari2.jpg"] {
+    background: linear-gradient(45deg, #8B4513, #DEB887);
+    background-image: 
+        radial-gradient(circle at 25% 25%, #FFD700 20px, transparent 20px),
+        radial-gradient(circle at 75% 75%, #FF6347 15px, transparent 15px),
+        radial-gradient(circle at 50% 50%, #32CD32 10px, transparent 10px),
+        radial-gradient(circle at 80% 30%, #FF1493 12px, transparent 12px);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.game-image[src="images/mountain1.jpg"] {
+    background: linear-gradient(to bottom, #87CEEB, #228B22);
+    background-image: 
+        polygon(0 60%, 50% 20%, 100% 60%, 100% 100%, 0 100%);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.game-image[src="images/mountain2.jpg"] {
+    background: linear-gradient(to bottom, #87CEEB, #228B22);
+    background-image: 
+        polygon(0 60%, 50% 20%, 100% 60%, 100% 100%, 0 100%);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.game-image[src="images/city1.jpg"] {
+    background: linear-gradient(to bottom, #4169E1, #696969);
+    background-image: 
+        repeating-linear-gradient(90deg, #D3D3D3 0px, #D3D3D3 50px, #A9A9A9 50px, #A9A9A9 100px);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.game-image[src="images/city2.jpg"] {
+    background: linear-gradient(to bottom, #4169E1, #696969);
+    background-image: 
+        repeating-linear-gradient(90deg, #D3D3D3 0px, #D3D3D3 50px, #A9A9A9 50px, #A9A9A9 100px);
+    width: 500px;
+    height: 400px;
+    position: relative;
+}

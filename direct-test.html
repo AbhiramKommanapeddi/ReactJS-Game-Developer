@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - Direct Loading</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-image { 
+            width: 300px; 
+            height: 200px; 
+            border: 2px solid #333; 
+            margin: 10px;
+            display: block;
+            background: white;
+        }
+        .info { margin: 10px 0; padding: 10px; background: #f0f0f0; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Direct Image Loading Test</h1>
+    
+    <h2>Method 1: Direct HTML</h2>
+    <img src="images/test1.svg" alt="Test 1" class="test-image">
+    <img src="images/test2.svg" alt="Test 2" class="test-image">
+    
+    <h2>Method 2: JavaScript Loading</h2>
+    <img id="jsImg1" class="test-image" alt="JS Test 1">
+    <img id="jsImg2" class="test-image" alt="JS Test 2">
+    
+    <div class="info">
+        <button onclick="loadImages()">Load Images via JavaScript</button>
+        <button onclick="testGameData()">Test Game Data Loading</button>
+    </div>
+    
+    <div id="results" class="info">Ready to test...</div>
+    
+    <script>
+        function log(message) {
+            document.getElementById('results').innerHTML += message + '<br>';
+            console.log(message);
+        }
+        
+        function loadImages() {
+            log('Loading images via JavaScript...');
+            
+            const img1 = document.getElementById('jsImg1');
+            const img2 = document.getElementById('jsImg2');
+            
+            img1.onload = () => log('✓ JS Image 1 loaded');
+            img1.onerror = () => log('✗ JS Image 1 failed');
+            
+            img2.onload = () => log('✓ JS Image 2 loaded');
+            img2.onerror = () => log('✗ JS Image 2 failed');
+            
+            img1.src = 'images/test1.svg';
+            img2.src = 'images/test2.svg';
+        }
+        
+        async function testGameData() {
+            try {
+                log('Loading game data...');
+                const response = await fetch('data/test.json');
+                const data = await response.json();
+                
+                log('✓ Game data loaded');
+                log('Image 1 path: ' + data.images.image1);
+                log('Image 2 path: ' + data.images.image2);
+                
+                // Try loading images from game data
+                const img1 = document.getElementById('jsImg1');
+                const img2 = document.getElementById('jsImg2');
+                
+                img1.src = data.images.image1;
+                img2.src = data.images.image2;
+                
+                log('Images set from game data');
+                
+            } catch (error) {
+                log('✗ Error loading game data: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

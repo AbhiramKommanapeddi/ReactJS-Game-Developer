@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Image Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-container { display: flex; gap: 20px; margin: 20px 0; }
+        .test-image { 
+            width: 300px; 
+            height: 200px; 
+            border: 2px solid #333; 
+            background: white;
+            display: block;
+        }
+        h3 { margin: 10px 0 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Static Image Loading Test</h1>
+    <p>This tests if images load directly in HTML without JavaScript.</p>
+    
+    <div class="image-container">
+        <div>
+            <h3>Test Image 1</h3>
+            <img src="images/test1.svg" class="test-image" alt="Test 1">
+        </div>
+        <div>
+            <h3>Test Image 2</h3>
+            <img src="images/test2.svg" class="test-image" alt="Test 2">
+        </div>
+    </div>
+    
+    <div class="image-container">
+        <div>
+            <h3>Safari Image 1</h3>
+            <img src="images/safari1.svg" class="test-image" alt="Safari 1">
+        </div>
+        <div>
+            <h3>Safari Image 2</h3>
+            <img src="images/safari2.svg" class="test-image" alt="Safari 2">
+        </div>
+    </div>
+    
+    <p>If you can see the images above, then the image files are working correctly and the issue is in the JavaScript loading logic.</p>
+</body>
+</html>

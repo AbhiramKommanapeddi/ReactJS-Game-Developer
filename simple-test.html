@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-img { 
+            width: 300px; 
+            height: 200px; 
+            border: 2px solid #333; 
+            background: white; 
+            display: block; 
+            margin: 10px 0;
+        }
+        .status { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Simple Image Loading Test</h1>
+    
+    <h2>Test 1: Direct SVG</h2>
+    <img id="img1" class="test-img" src="images/test1.svg" alt="Test 1">
+    <div id="status1" class="status">Loading...</div>
+    
+    <h2>Test 2: Via JavaScript</h2>
+    <img id="img2" class="test-img" alt="Test 2">
+    <div id="status2" class="status">Loading...</div>
+    
+    <button onclick="loadImages()">Load Images</button>
+    <button onclick="testFetch()">Test Fetch</button>
+    
+    <script>
+        function updateStatus(id, message, isError = false) {
+            const status = document.getElementById(id);
+            status.textContent = message;
+            status.className = isError ? 'status error' : 'status success';
+        }
+        
+        // Test direct loading
+        const img1 = document.getElementById('img1');
+        img1.addEventListener('load', () => {
+            updateStatus('status1', 'Image 1 loaded successfully!');
+        });
+        img1.addEventListener('error', (e) => {
+            updateStatus('status1', 'Image 1 failed to load: ' + e.message, true);
+        });
+        
+        // Test JavaScript loading
+        function loadImages() {
+            const img2 = document.getElementById('img2');
+            img2.addEventListener('load', () => {
+                updateStatus('status2', 'Image 2 loaded successfully!');
+            });
+            img2.addEventListener('error', (e) => {
+                updateStatus('status2', 'Image 2 failed to load: ' + e.message, true);
+            });
+            
+            img2.src = 'images/test2.svg';
+        }
+        
+        // Test fetch
+        async function testFetch() {
+            try {
+                const response = await fetch('data/test.json');
+                const data = await response.json();
+                console.log('JSON loaded:', data);
+                alert('JSON loaded successfully! Check console for details.');
+            } catch (error) {
+                console.error('JSON failed:', error);
+                alert('JSON failed to load: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

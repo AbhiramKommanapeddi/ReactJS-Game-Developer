@@ -1,0 +1,31 @@
+{
+  "name": "spot-the-difference-game",
+  "version": "1.0.0",
+  "description": "A JSON-configurable Spot the Difference game built with HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=8000",
+    "build": "echo 'Static site - no build process needed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "game",
+    "puzzle",
+    "spot-the-difference",
+    "javascript",
+    "html5",
+    "css3",
+    "json-configurable"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/spot-the-difference-game.git"
+  },
+  "homepage": "https://your-game-url.vercel.app",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

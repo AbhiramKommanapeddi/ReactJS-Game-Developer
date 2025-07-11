@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot the Difference Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="gameTitle">Spot the Difference</h1>
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer" class="stat-value">00:00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Found:</span>
+                    <span id="found" class="stat-value">0</span>
+                    <span>/</span>
+                    <span id="total" class="stat-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-controls">
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            <button id="hintBtn" class="btn btn-hint">Hint</button>
+            <button id="testBtn" class="btn btn-secondary">Test Clicks</button>
+            <button id="forceLoadBtn" class="btn btn-secondary">Force Load Images</button>
+            <select id="levelSelect" class="level-select" title="Select game level">
+                <option value="test">Test Level - Simple Shapes</option>
+                <option value="level1">Level 1 - Animals</option>
+                <option value="level2">Level 2 - Landscape</option>
+                <option value="level3">Level 3 - City</option>
+                <option value="safari_animals">Safari Animals Adventure</option>
+            </select>
+        </div>
+
+        <div class="game-container">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img id="image1" class="game-image" alt="Original Image">
+                    <div id="overlay1" class="overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img id="image2" class="game-image" alt="Modified Image">
+                    <div id="overlay2" class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <h2>🎉 Congratulations!</h2>
+                <p>You found all the differences!</p>
+                <div class="final-stats">
+                    <p>Final Score: <span id="finalScore"></span></p>
+                    <p>Time Taken: <span id="finalTime"></span></p>
+                </div>
+                <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+            </div>
+        </div>
+
+        <div id="hintModal" class="modal">
+            <div class="modal-content">
+                <h3>💡 Hint</h3>
+                <p id="hintText"></p>
+                <button id="closeHintBtn" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="clickSound" preload="auto">
+        <source src="sounds/click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="successSound" preload="auto">
+        <source src="sounds/success.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="completeSound" preload="auto">
+        <source src="sounds/complete.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

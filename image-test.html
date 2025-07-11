@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loading Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-test { margin: 20px 0; }
+        img { border: 2px solid #ccc; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <div class="image-test">
+        <h2>Test Images</h2>
+        <img src="images/test1.svg" alt="Test Image 1" width="300">
+        <img src="images/test2.svg" alt="Test Image 2" width="300">
+    </div>
+    
+    <div class="image-test">
+        <h2>Safari Images</h2>
+        <img src="images/safari1.svg" alt="Safari Image 1" width="300">
+        <img src="images/safari2.svg" alt="Safari Image 2" width="300">
+    </div>
+    
+    <div class="image-test">
+        <h2>Mountain Images</h2>
+        <img src="images/mountain1.svg" alt="Mountain Image 1" width="300">
+        <img src="images/mountain2.svg" alt="Mountain Image 2" width="300">
+    </div>
+    
+    <div class="image-test">
+        <h2>City Images</h2>
+        <img src="images/city1.svg" alt="City Image 1" width="300">
+        <img src="images/city2.svg" alt="City Image 2" width="300">
+    </div>
+    
+    <p><a href="index.html">Back to Game</a></p>
+    
+    <script>
+        // Add load/error event listeners to all images
+        const images = document.querySelectorAll('img');
+        images.forEach((img, index) => {
+            img.addEventListener('load', () => {
+                console.log(`Image ${index + 1} loaded:`, img.src);
+            });
+            
+            img.addEventListener('error', (e) => {
+                console.error(`Image ${index + 1} failed:`, img.src, e);
+                img.style.border = '2px solid red';
+            });
+        });
+    </script>
+</body>
+</html>
